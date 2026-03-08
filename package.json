@@ -1,0 +1,51 @@
+{
+  "name": "iris-relay",
+  "version": "1.1.0",
+  "description": "Lightweight Telegram message relay — dev tool for notifications, crash alerts, deploy pings, and more",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "iris-relay": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "tsx test.ts",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "telegram",
+    "relay",
+    "bot",
+    "message",
+    "notification",
+    "devtool",
+    "crash-reporter",
+    "deploy",
+    "heartbeat",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
