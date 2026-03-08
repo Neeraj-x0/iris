@@ -2,7 +2,7 @@ import { config } from "dotenv";
 import type { RelayConfig, RelayResult, TelegramResponse } from "./types.js";
 
 // Auto-load .env on import — true plug-and-play
-config();
+config({ quiet: true });
 
 const TG_API = "https://api.telegram.org";
 
