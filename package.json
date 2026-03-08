@@ -1,6 +1,6 @@
 {
   "name": "iris-relay",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Lightweight Telegram message relay — dev tool for notifications, crash alerts, deploy pings, and more",
   "type": "module",
   "main": "./dist/index.js",
