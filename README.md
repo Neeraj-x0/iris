@@ -225,9 +225,28 @@ Set `XERO_DRY_RUN=true` in `.env` to log messages to console instead of sending 
 
 ---
 
+## Getting Started
+
+```bash
+npx iris-relay init
+```
+
+The setup wizard will:
+1. Ask for your **Bot Token** (from @BotFather)
+2. Ask for your **Chat ID** (from @userinfobot)
+3. Optionally enable **dry run mode**
+4. Optionally generate a **GitHub Actions workflow**
+5. Write your `.env` and add it to `.gitignore`
+6. Send a **test message** to verify everything works
+
+---
+
 ## CLI
 
 ```bash
+# Interactive setup
+npx iris-relay init
+
 # Send a message
 npx iris-relay "Deploy complete ✅"
 
