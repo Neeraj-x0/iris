@@ -275,6 +275,12 @@ The setup wizard will:
 # Interactive setup
 pnpm dlx iris-relay init   # or: npx iris-relay init
 
+# Validate config & test connection
+pnpm dlx iris-relay doctor
+
+# Remove iris-relay config from project
+pnpm dlx iris-relay reset
+
 # Send a message
 pnpm dlx iris-relay "Deploy complete ✅"   # or: npx iris-relay "..."
 
@@ -287,6 +293,9 @@ pnpm dlx iris-relay --file ./logs/error.log "Error log attached"
 # Silent (no notification sound)
 pnpm dlx iris-relay --silent "Background update"
 ```
+
+> **Re-init:** Running `init` again detects existing config and asks to override.
+> **System env:** If `XERO_BOT_TOKEN` or `XERO_CHAT_ID` are set at the system/shell level, the wizard will notify you and suggest using a secrets manager for production.
 
 ---
 
