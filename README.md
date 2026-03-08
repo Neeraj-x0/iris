@@ -5,17 +5,30 @@ Lightweight Telegram relay dev tool — crash alerts, deploy notifications, hear
 ## Install
 
 ```bash
+# pnpm
 pnpm add iris-relay
+
+# npm
+npm install iris-relay
 ```
 
 ## Setup
 
-Create a `.env` file in your project root:
+Run the interactive setup wizard:
+
+```bash
+# pnpm
+pnpm dlx iris-relay init
+
+# npm
+npx iris-relay init
+```
+
+Or manually create a `.env` file:
 
 ```env
 XERO_BOT_TOKEN=your_bot_token_from_botfather
 XERO_CHAT_ID=your_telegram_chat_id
-XERO_DRY_RUN=false
 ```
 
 > **Bot Token** → [@BotFather](https://t.me/BotFather) · **Chat ID** → [@userinfobot](https://t.me/userinfobot)
@@ -228,16 +241,31 @@ Set `XERO_DRY_RUN=true` in `.env` to log messages to console instead of sending 
 ## Getting Started
 
 ```bash
+# pnpm
+pnpm dlx iris-relay init
+
+# npm
 npx iris-relay init
 ```
 
 The setup wizard will:
-1. Ask for your **Bot Token** (from @BotFather)
-2. Ask for your **Chat ID** (from @userinfobot)
-3. Optionally enable **dry run mode**
-4. Optionally generate a **GitHub Actions workflow**
-5. Write your `.env` and add it to `.gitignore`
-6. Send a **test message** to verify everything works
+
+**Step 1 — Credentials**
+- Ask for your **Bot Token** (from @BotFather)
+- Ask for your **Chat ID** (from @userinfobot)
+
+**Step 2 — Features** (auto-detects your framework & package manager)
+- 🛡️ Crash watcher — auto-report uncaught exceptions
+- 💓 Heartbeat — periodic alive pings with custom interval
+- 🔌 Express/Fastify middleware — slow request & error reporting (only if detected)
+- 🧪 Dry run mode — log to console instead of sending
+
+**Step 3 — Scaffolding**
+- 📄 Generates `iris.ts` or `iris.js` starter file with selected features pre-wired
+- 🚀 GitHub Actions deploy notification workflow
+- 🐳 Docker Compose env var setup
+
+**Then** → writes `.env`, updates `.gitignore`, sends a test message ✅
 
 ---
 
@@ -245,19 +273,19 @@ The setup wizard will:
 
 ```bash
 # Interactive setup
-npx iris-relay init
+pnpm dlx iris-relay init   # or: npx iris-relay init
 
 # Send a message
-npx iris-relay "Deploy complete ✅"
+pnpm dlx iris-relay "Deploy complete ✅"   # or: npx iris-relay "..."
 
 # Send with HTML
-npx iris-relay --html "<b>Bold</b> message"
+pnpm dlx iris-relay --html "<b>Bold</b> message"
 
 # Send a file
-npx iris-relay --file ./logs/error.log "Error log attached"
+pnpm dlx iris-relay --file ./logs/error.log "Error log attached"
 
 # Silent (no notification sound)
-npx iris-relay --silent "Background update"
+pnpm dlx iris-relay --silent "Background update"
 ```
 
 ---
